@@ -1,0 +1,35 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        int count = 0;
+        int dif = 0;
+        int sum = 0;
+        // int i=0;
+        if (s.length() == 0) {
+            return 0;
+        } else if (s.length() == 1) {
+            return 1;
+        } else {
+
+            for (int i = 0; i < s.length(); i++) {
+
+                for (int j = i + 1; j < s.length(); j++) {
+                    if (s.charAt(i) == s.charAt(j)) {
+                        dif = j - i;
+                        if (count <= dif) {
+                            count = dif;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (count == 0) {
+            return s.length();
+         } 
+        
+        else {
+            return count;
+
+        }
+    }
+}
